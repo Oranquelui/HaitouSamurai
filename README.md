@@ -18,6 +18,40 @@ HaitouSamurai turns dividend stock analysis into an explainable dashboard:
 - Future Japan/US/global stock data refresh
 - Future one-time Lifetime Pro license for convenience features
 
+## Current MVP
+
+This repository now includes a Next.js 16 static MVP:
+
+- Landing page with research-backed positioning
+- Telic Recursion / Decision Loop section inspired by the provided concept image
+- Static dashboard demo
+- Chart.js yield-quality map
+- Clickable dividend signal table
+- Signal explanation panel
+- Tax-adjusted income simulation
+
+## Quick Start
+
+```bash
+npm install
+npm run dev
+```
+
+Open:
+
+```txt
+http://localhost:3000
+http://localhost:3000/dashboard
+```
+
+Verification:
+
+```bash
+npm test
+npm run lint
+npm run build
+```
+
 ## Positioning
 
 This is not another generic stock screener.
@@ -58,7 +92,11 @@ Initial public social research found repeated demand around:
 - Explaining why a stock is safe, risky, or worth watching
 - Simple checklist-style screening that can be shared on X/GitHub
 
-See the implementation plan in `docs/superpowers/plans/`.
+See:
+
+- `docs/RESEARCH.md`
+- `docs/LEGAL_DISCLAIMER.md`
+- `docs/superpowers/plans/2026-04-26-haitou-samurai-mvp-lp-plan.md`
 
 ## Legal Disclaimer
 
