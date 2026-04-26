@@ -19,6 +19,7 @@ coverage/
 .DS_Store
 .idea/
 .vscode/
+.worktrees/
 
 # Private source workbooks and exports
 *.xlsx
