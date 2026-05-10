@@ -8,6 +8,8 @@ Users are responsible for verifying all financial data, market data, exchange ra
 
 Static demo data may be stale, approximate, incomplete, or intentionally simplified for product demonstration.
 
+The sample dataset may include public ticker symbols, but the displayed metrics are static demo inputs for validating the product workflow. They are not live market data and should not be used as the sole basis for any financial decision.
+
 HaitouSamurai contributors are not responsible for financial losses, tax consequences, data errors, or decisions made based on this software.
 
 Consult qualified financial, tax, or legal professionals where appropriate.

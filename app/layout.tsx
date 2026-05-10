@@ -22,18 +22,18 @@ const jpSerif = Noto_Serif_JP({
 
 export const metadata: Metadata = {
   title: "HaitouSamurai | Semantic Dividend Dashboard",
-  description: "An open-source semantic dividend dashboard for finding sustainable high-yield signals without chasing yield traps.",
+  description: "An open-source semantic dividend dashboard for researching sustainability signals without chasing yield traps.",
   metadataBase: new URL("https://github.com/Oranquelui/HaitouSamurai"),
   openGraph: {
     title: "HaitouSamurai",
-    description: "Don't chase yield. Mine sustainable dividend signals.",
+    description: "Don't chase yield. Study sustainable dividend signals.",
     type: "website"
   }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${mono.variable} ${jpSerif.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${display.variable} ${mono.variable} ${jpSerif.variable}`}>
       <body>{children}</body>
     </html>
   );

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { shortDisclaimer } from "@/lib/disclaimer";
+import { landingCtas } from "@/lib/public-links";
 
 const signalRows = [
   ["JNJ", "Strong", "88", "3.1%"],
@@ -26,13 +27,20 @@ export function Hero() {
             X調査で見えた需要は、配当収入の安心感、減配リスクの回避、そして自分で納得できる理由です。HaitouSamuraiは銘柄を断定せず、検証可能なシグナルとして可視化します。
           </p>
         </div>
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <a className="samurai-button" href="https://github.com/Oranquelui/HaitouSamurai" target="_blank" rel="noreferrer">
-            Star on GitHub
-          </a>
-          <Link className="ghost-button" href="/dashboard">
-            Try Live Demo
-          </Link>
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          {landingCtas.map((cta) => {
+            const className = cta.priority === "primary" ? "samurai-button" : "ghost-button";
+
+            return cta.href.startsWith("http") ? (
+              <a key={cta.label} className={className} href={cta.href} target="_blank" rel="noreferrer">
+                {cta.label}
+              </a>
+            ) : (
+              <Link key={cta.label} className={className} href={cta.href}>
+                {cta.label}
+              </Link>
+            );
+          })}
         </div>
         <p className="max-w-xl border-l border-cyan-300/30 pl-4 text-xs leading-6 text-slate-500">{shortDisclaimer}</p>
       </div>
