@@ -3,12 +3,12 @@ export const GITHUB_REPO_URL = "https://github.com/Oranquelui/HaitouSamurai";
 const waitlistIssueTitle = encodeURIComponent("Lifetime Pro waitlist interest");
 const waitlistIssueBody = encodeURIComponent(
   [
-    "I want to follow HaitouSamurai Lifetime Pro updates.",
+    "I want to follow 配当サムライ / Haitou Samurai Lifetime Pro updates.",
     "",
     "Use case:",
     "Most useful workflow feature: watchlist / target dividend planner / saved scenarios / custom thresholds / export",
     "",
-    "Note: HaitouSamurai is an educational screening tool, not investment advice or ticker recommendations."
+    "Note: 配当サムライ / Haitou Samurai is an educational screening tool, not investment advice or ticker recommendations."
   ].join("\n")
 );
 

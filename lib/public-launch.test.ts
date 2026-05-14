@@ -34,4 +34,12 @@ describe("public launch copy", () => {
 
     expect(layoutSource).toContain('data-scroll-behavior="smooth"');
   });
+
+  it("uses the public brand name 配当サムライ / Haitou Samurai in metadata", async () => {
+    const layoutSource = await readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
+
+    expect(layoutSource).toContain("配当サムライ");
+    expect(layoutSource).toContain("Haitou Samurai");
+    expect(layoutSource).not.toContain("Dividend Mining Research Tool");
+  });
 });

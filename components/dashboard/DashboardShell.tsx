@@ -20,8 +20,8 @@ export function DashboardShell({ stocks }: { stocks: StockSignalRecord[] }) {
     <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 lg:px-10">
       <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="kicker">Dividend Mining / Sample Dataset</p>
-          <h1 className="jp-serif mt-3 text-5xl font-black text-white sm:text-7xl">配当 Mining Deck</h1>
+          <p className="kicker">配当サムライ / Sample Dataset</p>
+          <h1 className="jp-serif mt-3 text-5xl font-black text-white sm:text-7xl">配当サムライ Deck</h1>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400">{sampleDataNotice}</p>
         </div>
         <div className="grid grid-cols-2 gap-3 text-center sm:grid-cols-4">

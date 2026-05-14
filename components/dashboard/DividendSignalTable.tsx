@@ -98,7 +98,7 @@ export function DividendSignalTable({
     <div className="glow-panel overflow-hidden rounded-[1.75rem]">
       <div className="border-b border-white/10 p-5">
         <p className="kicker">Screening Table</p>
-        <h2 className="mt-1 text-2xl font-black text-white">Dividend Mining Metrics</h2>
+        <h2 className="mt-1 text-2xl font-black text-white">Haitou Samurai Metrics</h2>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[1120px] text-left text-sm">

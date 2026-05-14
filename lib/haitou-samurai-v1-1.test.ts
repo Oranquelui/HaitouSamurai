@@ -27,7 +27,7 @@ const completeMetricStock: StockMetricInput = {
   dividendGrowthYears: 12
 };
 
-describe("Dividend Mining v1.1", () => {
+describe("配当サムライ v1.1", () => {
   it("keeps the workbook legend metrics in the canonical metric definitions", () => {
     expect(metricDefinitions.map((metric) => metric.id)).toEqual(
       expect.arrayContaining([

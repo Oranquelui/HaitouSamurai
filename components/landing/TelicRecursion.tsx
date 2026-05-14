@@ -29,10 +29,10 @@ export function TelicRecursion() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
       <div className="mb-8 max-w-3xl">
-        <p className="kicker">Dividend Mining Workflow</p>
+        <p className="kicker">Haitou Samurai Workflow</p>
         <h2 className="jp-serif mt-3 text-4xl font-black text-white sm:text-6xl">候補を掘り、数字で確認し、次に調べる。</h2>
         <p className="mt-5 text-base leading-8 text-slate-400">
-          HaitouSamuraiは銘柄を推奨しません。配当候補、減配リスクのサイン、税引後の手取りを整理し、ユーザー自身の調査を短くするためのワークフローです。
+          配当サムライは銘柄を推奨しません。配当候補、減配リスクのサイン、税引後の手取りを整理し、ユーザー自身の調査を短くするためのワークフローです。
         </p>
       </div>
       <div className="grid gap-4 lg:grid-cols-4">

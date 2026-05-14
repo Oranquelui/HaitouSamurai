@@ -1,8 +1,8 @@
-# Dividend Mining v1.1 Design
+# 配当サムライ / Haitou Samurai v1.1 Design
 
 ## Goal
 
-Bring HaitouSamurai closer to the original workbook purpose: help users mine dividend candidates, inspect dividend sustainability metrics, and estimate after-tax income without providing investment advice or ticker recommendations.
+Bring 配当サムライ / Haitou Samurai closer to the original workbook purpose: help users mine dividend candidates, inspect dividend sustainability metrics, and estimate after-tax income without providing investment advice or ticker recommendations.
 
 ## Buyer-Facing Positioning
 

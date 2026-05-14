@@ -21,11 +21,11 @@ const jpSerif = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  title: "HaitouSamurai | Dividend Mining Research Tool",
-  description: "A dividend mining dashboard for checking coverage metrics, risk flags, and after-tax income scenarios without ticker recommendations.",
+  title: "配当サムライ | Haitou Samurai Research Tool",
+  description: "A dividend research dashboard for checking coverage metrics, risk flags, and after-tax income scenarios without ticker recommendations.",
   metadataBase: new URL("https://github.com/Oranquelui/HaitouSamurai"),
   openGraph: {
-    title: "HaitouSamurai",
+    title: "配当サムライ / Haitou Samurai",
     description: "Check dividend candidates, risk flags, and after-tax income in one research screen.",
     type: "website"
   }

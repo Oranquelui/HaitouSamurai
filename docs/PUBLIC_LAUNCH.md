@@ -1,6 +1,6 @@
 # Public Launch Notes
 
-HaitouSamurai is ready for a lightweight public demo when these items are set:
+配当サムライ / Haitou Samurai is ready for a lightweight public demo when these items are set:
 
 ## Public Path
 

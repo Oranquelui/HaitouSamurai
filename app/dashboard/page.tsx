@@ -8,7 +8,7 @@ export default function DashboardPage() {
   return (
     <main>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
-        <Link href="/" className="display-font text-3xl text-white">HaitouSamurai</Link>
+        <Link href="/" className="display-font text-3xl text-white">Haitou Samurai</Link>
         <div className="flex items-center gap-2">
           <a className="ghost-button py-2 text-sm" href={GITHUB_REPO_URL} target="_blank" rel="noreferrer">GitHub</a>
           <a className="ghost-button py-2 text-sm" href={WAITLIST_ISSUE_URL} target="_blank" rel="noreferrer">Waitlist</a>

@@ -1,8 +1,8 @@
-# HaitouSamurai
+# 配当サムライ / Haitou Samurai
 
 **"利回り高いけど大丈夫？"を、数値で確かめる。**
 
-HaitouSamurai is an open-source dividend mining dashboard for checking dividend candidates, risk flags, and after-tax income scenarios. It does not recommend tickers. It helps users inspect the numbers they want to verify before doing their own research.
+Haitou Samurai is an open-source dividend research dashboard for checking dividend candidates, risk flags, and after-tax income scenarios. It does not recommend tickers. It helps users inspect the numbers they want to verify before doing their own research.
 
 ## Demo
 
@@ -22,7 +22,7 @@ HaitouSamurai is an open-source dividend mining dashboard for checking dividend 
 
 ## What It Does Not Do
 
-HaitouSamurai does not provide investment advice, financial advice, securities recommendations, ticker recommendations, or buy/sell/hold instructions. Scores, tables, charts, and simulations are educational screening outputs only.
+Haitou Samurai does not provide investment advice, financial advice, securities recommendations, ticker recommendations, or buy/sell/hold instructions. Scores, tables, charts, and simulations are educational screening outputs only.
 
 Static sample data may be stale, approximate, incomplete, or intentionally simplified. Verify financial data, market data, tax assumptions, exchange rates, and company fundamentals from primary sources before making financial decisions.
 
@@ -36,7 +36,7 @@ Dividend investors repeatedly ask:
 - "月5万円、月10万円の配当にはどれくらい必要？"
 - "Excel管理が面倒。見るべき数字を一画面にまとめたい。"
 
-HaitouSamurai focuses on that workflow: mine candidates, check coverage, simulate after-tax income, and decide what to research next.
+Haitou Samurai focuses on that workflow: mine candidates, check coverage, simulate after-tax income, and decide what to research next.
 
 ## Free vs Pro Direction
 
@@ -95,7 +95,7 @@ npm run build
 - [Research notes](docs/RESEARCH.md)
 - [Legal disclaimer](docs/LEGAL_DISCLAIMER.md)
 - [Public launch notes](docs/PUBLIC_LAUNCH.md)
-- [Dividend Mining v1.1 design](docs/superpowers/specs/2026-05-14-dividend-mining-v1-1-design.md)
+- [配当サムライ v1.1 design](docs/superpowers/specs/2026-05-14-haitou-samurai-v1-1-design.md)
 
 ## License
 

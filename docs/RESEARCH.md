@@ -1,4 +1,4 @@
-# HaitouSamurai Research Notes
+# 配当サムライ / Haitou Samurai Research Notes
 
 Collected on 2026-04-26 from public sources, including X API recent search, Reddit, Yahoo Finance boards, and 5ch/Talk-style public threads where accessible.
 
@@ -43,7 +43,7 @@ Key behavioral drivers:
 
 ## Product Implications
 
-HaitouSamurai should lead with:
+配当サムライ / Haitou Samurai should lead with:
 
 - Dividend candidate mining
 - Yield-trap and dividend-cut risk flags

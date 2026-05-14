@@ -13,7 +13,7 @@ export function Hero() {
     <section className="relative mx-auto grid min-h-screen w-full max-w-7xl items-center gap-12 px-5 py-12 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:px-10">
       <div className="reveal-up space-y-8">
         <div className="inline-flex rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-cyan-200">
-          Dividend Mining / Japan + US ETF research
+          配当サムライ / Japan + US ETF research
         </div>
         <div className="space-y-5">
           <h1 className="jp-serif text-balance text-5xl font-black leading-[1.02] text-white sm:text-7xl lg:text-8xl">
@@ -24,7 +24,7 @@ export function Hero() {
             配当候補を掘り、<span className="text-amber-300">減配リスクのサイン</span> と税引後の手取りを一画面で確認するリサーチツール。
           </p>
           <p className="max-w-xl text-sm leading-7 text-slate-400">
-            配当利回り、配当性向、ROE/ROA、利益率、EPS成長、流動性、負債をまとめて整理。HaitouSamuraiは銘柄を推奨せず、自分で判断するための数字を見える化します。
+            配当利回り、配当性向、ROE/ROA、利益率、EPS成長、流動性、負債をまとめて整理。配当サムライは銘柄を推奨せず、自分で判断するための数字を見える化します。
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
