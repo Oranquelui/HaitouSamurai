@@ -10,11 +10,16 @@ const resilientStock = {
   payoutRatio: 42,
   roe: 15,
   roa: 7,
+  returnOnInvestment: 11,
   operatingMargin: 18,
+  netProfitMargin: 13,
+  epsGrowthThisYear: 9,
   epsGrowth5y: 8,
+  performanceYear: 12,
   currentRatio: 1.8,
   quickRatio: 1.2,
-  debtToEquity: 0.45,
+  ltDebtToEquity: 0.35,
+  totalDebtToEquity: 0.45,
   marketCapUsdBn: 48,
   dividendGrowthYears: 12
 };
@@ -28,29 +33,34 @@ const trapStock = {
   payoutRatio: 132,
   roe: 2,
   roa: 0.8,
+  returnOnInvestment: 1.5,
   operatingMargin: 5,
+  netProfitMargin: 2,
+  epsGrowthThisYear: -12,
   epsGrowth5y: -9,
+  performanceYear: -35,
   currentRatio: 0.7,
   quickRatio: 0.4,
-  debtToEquity: 2.4,
+  ltDebtToEquity: 2.1,
+  totalDebtToEquity: 2.4,
   marketCapUsdBn: 3,
   dividendGrowthYears: 0
 };
 
 describe("calculateDividendSignal", () => {
-  it("grades resilient dividend fundamentals as Strong with clear positive reasons", () => {
+  it("grades resilient dividend fundamentals as High Coverage with clear positive reasons", () => {
     const signal = calculateDividendSignal(resilientStock);
 
-    expect(signal.grade).toBe("Strong");
+    expect(signal.grade).toBe("High Coverage");
     expect(signal.score).toBeGreaterThanOrEqual(82);
     expect(signal.reasons).toContain("Payout ratio leaves room for reinvestment and dividend coverage.");
     expect(signal.risks).not.toContain("Yield may be a trap without matching earnings quality.");
   });
 
-  it("flags high-yield weak fundamentals as Avoid with explicit yield-trap risk", () => {
+  it("flags high-yield weak fundamentals as Needs Review with explicit yield-trap risk", () => {
     const signal = calculateDividendSignal(trapStock);
 
-    expect(signal.grade).toBe("Avoid");
+    expect(signal.grade).toBe("Needs Review");
     expect(signal.score).toBeLessThan(45);
     expect(signal.risks).toContain("Yield may be a trap without matching earnings quality.");
     expect(signal.risks).toContain("Payout ratio is above sustainable coverage range.");

@@ -18,13 +18,13 @@ describe("public launch copy", () => {
 
   it("keeps dashboard copy inside the research and sample-data boundary", () => {
     expect(shortDisclaimer).toContain("not investment advice");
-    expect(shortDisclaimer).toContain("not buy/sell recommendations");
+    expect(shortDisclaimer).toContain("ticker recommendations");
     expect(sampleDataNotice).toContain("Sample dataset");
     expect(sampleDataNotice).toContain("not live market data");
     expect(dashboardTrustCopy).toEqual(
       expect.arrayContaining([
         expect.stringContaining("Static sample metrics"),
-        expect.stringContaining("educational research")
+        expect.stringContaining("educational screening")
       ])
     );
   });

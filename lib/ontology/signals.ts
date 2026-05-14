@@ -9,28 +9,28 @@ export type SignalDefinition = {
 
 export const signalDefinitions: SignalDefinition[] = [
   {
-    grade: "Strong",
-    label: "Strong Signal",
+    grade: "High Coverage",
+    label: "High Coverage",
     color: "#64f5c8",
-    meaning: "Quality and coverage support the income story. Still verify live data."
+    meaning: "Coverage metrics look comparatively strong. Still verify live data and source filings."
   },
   {
-    grade: "Watch",
-    label: "Watch Signal",
+    grade: "Monitor",
+    label: "Monitor",
     color: "#45b7ff",
-    meaning: "Looks investable, but one or more assumptions need monitoring."
+    meaning: "Several metrics look workable, but assumptions need monitoring."
   },
   {
-    grade: "Risk",
-    label: "Risk Signal",
+    grade: "Risk Flags",
+    label: "Risk Flags",
     color: "#ffbf47",
-    meaning: "Income may be attractive, but fundamentals need deeper review."
+    meaning: "Income may be attractive, but one or more metrics need deeper review."
   },
   {
-    grade: "Avoid",
-    label: "Avoid Signal",
+    grade: "Needs Review",
+    label: "Needs Review",
     color: "#ff5c7a",
-    meaning: "High yield may be masking weak coverage, leverage, or deteriorating earnings."
+    meaning: "Risk flags are elevated. This is not a buy/sell instruction."
   }
 ];
 

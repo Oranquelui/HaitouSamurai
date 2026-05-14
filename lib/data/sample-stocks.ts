@@ -5,7 +5,33 @@ export type StockRecord = StockMetricInput & {
   price: number;
 };
 
-export const sampleStocks: StockRecord[] = [
+type LegacyStockRecord = Omit<
+  StockMetricInput,
+  "returnOnInvestment" | "netProfitMargin" | "epsGrowthThisYear" | "performanceYear" | "ltDebtToEquity" | "totalDebtToEquity"
+> & {
+  debtToEquity: number;
+  currency: StockRecord["currency"];
+  price: number;
+};
+
+const round = (value: number, digits = 2) => Number(value.toFixed(digits));
+
+const enrichSampleStock = (stock: LegacyStockRecord): StockRecord => {
+  const { debtToEquity, ...base } = stock;
+  const epsGrowthThisYear = round(stock.epsGrowth5y + (stock.dividendGrowthYears >= 5 ? 1.5 : -1.5), 1);
+
+  return {
+    ...base,
+    returnOnInvestment: round((stock.roe * 0.55) + (stock.roa * 0.45), 1),
+    netProfitMargin: round(Math.max(1, stock.operatingMargin * 0.62), 1),
+    epsGrowthThisYear,
+    performanceYear: round((epsGrowthThisYear * 1.8) + (stock.roe >= 12 ? 5 : -5) - stock.dividendYield, 1),
+    ltDebtToEquity: round(debtToEquity * 0.72),
+    totalDebtToEquity: round(debtToEquity)
+  };
+};
+
+const baseSampleStocks: LegacyStockRecord[] = [
   { ticker: "2914.T", name: "Japan Tobacco", region: "JP", sector: "Consumer Staples", dividendYield: 4.7, payoutRatio: 72, roe: 14, roa: 6, operatingMargin: 24, epsGrowth5y: 4, currentRatio: 1.5, quickRatio: 0.9, debtToEquity: 0.58, marketCapUsdBn: 51, dividendGrowthYears: 8, currency: "JPY", price: 4200 },
   { ticker: "8593.T", name: "Mitsubishi HC Capital", region: "JP", sector: "Financials", dividendYield: 3.4, payoutRatio: 41, roe: 9, roa: 1.8, operatingMargin: 18, epsGrowth5y: 7, currentRatio: 1.3, quickRatio: 0.9, debtToEquity: 2.1, marketCapUsdBn: 10, dividendGrowthYears: 25, currency: "JPY", price: 1080 },
   { ticker: "8306.T", name: "Mitsubishi UFJ Financial", region: "JP", sector: "Financials", dividendYield: 3.1, payoutRatio: 34, roe: 8, roa: 0.5, operatingMargin: 28, epsGrowth5y: 9, currentRatio: 1.1, quickRatio: 0.8, debtToEquity: 1.8, marketCapUsdBn: 155, dividendGrowthYears: 6, currency: "JPY", price: 1820 },
@@ -31,6 +57,8 @@ export const sampleStocks: StockRecord[] = [
   { ticker: "QYLD", name: "Global X Nasdaq 100 Covered Call ETF", region: "US", sector: "ETF", dividendYield: 11.4, payoutRatio: 104, roe: 5, roa: 4, operatingMargin: 8, epsGrowth5y: -2, currentRatio: 1.1, quickRatio: 1.1, debtToEquity: 0.05, marketCapUsdBn: 8, dividendGrowthYears: 0, currency: "USD", price: 18 },
   { ticker: "DEMO", name: "Mirage Yield Sample", region: "GLOBAL", sector: "Demo", dividendYield: 13.2, payoutRatio: 145, roe: 1, roa: 0.5, operatingMargin: 4, epsGrowth5y: -12, currentRatio: 0.6, quickRatio: 0.3, debtToEquity: 2.8, marketCapUsdBn: 2, dividendGrowthYears: 0, currency: "USD", price: 9 }
 ];
+
+export const sampleStocks: StockRecord[] = baseSampleStocks.map(enrichSampleStock);
 
 export const stockSignals = sampleStocks.map((stock) => ({
   ...stock,

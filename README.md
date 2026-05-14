@@ -1,10 +1,8 @@
 # HaitouSamurai
 
-**Don't chase yield. Study sustainable dividend signals.**
+**"利回り高いけど大丈夫？"を、数値で確かめる。**
 
-HaitouSamurai is an open-source semantic dividend dashboard for researching dividend sustainability, yield-trap risk, and after-tax income scenarios. It is built for people who want a clear research workflow without treating a model score as investment advice.
-
-> 利回りだけで買うな。配当が“続く理由”を見ろ。
+HaitouSamurai is an open-source dividend mining dashboard for checking dividend candidates, risk flags, and after-tax income scenarios. It does not recommend tickers. It helps users inspect the numbers they want to verify before doing their own research.
 
 ## Demo
 
@@ -14,18 +12,51 @@ HaitouSamurai is an open-source semantic dividend dashboard for researching divi
 
 ## What It Does
 
-- Scores dividend sustainability from payout, profitability, growth, liquidity, debt, scale, and dividend history signals
-- Flags possible yield-trap conditions for further research
-- Shows a Chart.js yield-vs-quality map
-- Provides a clickable signal table and explanation panel
+- Screens dividend candidates across income, coverage, profitability, growth, liquidity, and debt metrics
+- Shows risk flags without buy/sell/hold language
+- Includes workbook-aligned metrics: dividend yield, payout ratio, ROE, ROA, ROI, operating margin, net margin, EPS growth, one-year performance, current ratio, quick ratio, LT debt/equity, and total debt/equity
+- Maps yield against ROE with Chart.js
+- Shows a clickable metric table and explanation panel
 - Simulates after-tax income from a sample `$10,000` position
-- Uses static sample data so the product flow can be reviewed before live data integration
+- Uses static sample data while live data and portfolio features are still being validated
 
 ## What It Does Not Do
 
-HaitouSamurai does not provide investment advice, financial advice, securities recommendations, or buy/sell instructions. Scores, tables, charts, and simulations are educational research outputs only.
+HaitouSamurai does not provide investment advice, financial advice, securities recommendations, ticker recommendations, or buy/sell/hold instructions. Scores, tables, charts, and simulations are educational screening outputs only.
 
 Static sample data may be stale, approximate, incomplete, or intentionally simplified. Verify financial data, market data, tax assumptions, exchange rates, and company fundamentals from primary sources before making financial decisions.
+
+## Buyer Problem
+
+Dividend investors repeatedly ask:
+
+- "利回り高いけど大丈夫？"
+- "減配リスクのサインはどこを見る？"
+- "税引後でいくら残る？"
+- "月5万円、月10万円の配当にはどれくらい必要？"
+- "Excel管理が面倒。見るべき数字を一画面にまとめたい。"
+
+HaitouSamurai focuses on that workflow: mine candidates, check coverage, simulate after-tax income, and decide what to research next.
+
+## Free vs Pro Direction
+
+Free MVP:
+
+- Sample dashboard
+- Basic screening view
+- Single-position after-tax simulation
+- Metric explanations
+
+Future Pro validation:
+
+- Watchlist
+- Target dividend income planner
+- Saved scenarios
+- Custom thresholds
+- CSV/Excel export
+- Portfolio-level tax simulation
+
+Pro is intended to sell workflow efficiency, not investment judgment.
 
 ## Quick Start
 
@@ -49,16 +80,6 @@ npm run lint
 npm run build
 ```
 
-## Current MVP
-
-- Next.js 16 App Router static MVP
-- Landing page with dashboard, GitHub star, and Lifetime Pro waitlist CTAs
-- Static dashboard demo with sample stock metrics
-- Dividend score calculation tests with Vitest
-- Chart.js scatter plot
-- TanStack Table signal table
-- Legal disclaimer and research notes
-
 ## Tech Stack
 
 - Next.js 16
@@ -69,19 +90,12 @@ npm run build
 - TanStack Table
 - Vitest
 
-## Roadmap
-
-- Phase 0: Public repository, README, disclaimer, and research-backed positioning
-- Phase 1: Static landing page and dashboard MVP
-- Phase 2: Reproducible scoring data pipeline
-- Phase 3: Live data refresh for Japan, US, and global dividend names
-- Phase 4: Optional Lifetime Pro convenience features such as watchlists, exports, data refresh, and private support
-
 ## Docs
 
 - [Research notes](docs/RESEARCH.md)
 - [Legal disclaimer](docs/LEGAL_DISCLAIMER.md)
 - [Public launch notes](docs/PUBLIC_LAUNCH.md)
+- [Dividend Mining v1.1 design](docs/superpowers/specs/2026-05-14-dividend-mining-v1-1-design.md)
 
 ## License
 

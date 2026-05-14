@@ -21,12 +21,12 @@ const jpSerif = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  title: "HaitouSamurai | Semantic Dividend Dashboard",
-  description: "An open-source semantic dividend dashboard for researching sustainability signals without chasing yield traps.",
+  title: "HaitouSamurai | Dividend Mining Research Tool",
+  description: "A dividend mining dashboard for checking coverage metrics, risk flags, and after-tax income scenarios without ticker recommendations.",
   metadataBase: new URL("https://github.com/Oranquelui/HaitouSamurai"),
   openGraph: {
     title: "HaitouSamurai",
-    description: "Don't chase yield. Study sustainable dividend signals.",
+    description: "Check dividend candidates, risk flags, and after-tax income in one research screen.",
     type: "website"
   }
 };

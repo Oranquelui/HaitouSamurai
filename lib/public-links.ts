@@ -6,9 +6,9 @@ const waitlistIssueBody = encodeURIComponent(
     "I want to follow HaitouSamurai Lifetime Pro updates.",
     "",
     "Use case:",
-    "Most useful convenience feature:",
+    "Most useful workflow feature: watchlist / target dividend planner / saved scenarios / custom thresholds / export",
     "",
-    "Note: HaitouSamurai is an educational research tool, not investment advice."
+    "Note: HaitouSamurai is an educational screening tool, not investment advice or ticker recommendations."
   ].join("\n")
 );
 
@@ -34,6 +34,6 @@ export const landingCtas = [
 
 export const dashboardTrustCopy = [
   "Static sample metrics show how the scoring model behaves; they are not live market data.",
-  "Outputs are educational research signals, not investment advice or buy/sell recommendations.",
+  "Outputs are educational screening results, not investment advice or buy/sell recommendations.",
   "Verify prices, fundamentals, taxes, and exchange rates from primary sources before making financial decisions."
 ] as const;

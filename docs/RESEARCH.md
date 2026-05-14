@@ -45,10 +45,11 @@ Key behavioral drivers:
 
 HaitouSamurai should lead with:
 
-- Yield-trap detection
-- Dividend sustainability score
-- Why-this-signal explanation
-- After-tax income simulation
+- Dividend candidate mining
+- Yield-trap and dividend-cut risk flags
+- Tax-adjusted income simulation
+- Target dividend income planner in a future phase
+- Why-this-screening-result explanation
 - Monthly dividend calendar in a future phase
 - Shareable Samurai Card in a future phase
 
@@ -57,11 +58,11 @@ HaitouSamurai should lead with:
 Primary English line:
 
 ```txt
-Don't chase yield. Mine sustainable dividend signals.
+Check dividend candidates, risk flags, and after-tax income in one research screen.
 ```
 
 Primary Japanese line:
 
 ```txt
-利回りだけで買うな。配当が“続く理由”を見ろ。
+"利回り高いけど大丈夫？"を、数値で確かめる。
 ```

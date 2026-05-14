@@ -1,8 +1,8 @@
 const objections = [
-  ["高配当は危険では？", "だから利回り単体ではなく、配当性向・ROE・EPS成長・負債・流動性を同時に見ます。"],
-  ["これは投資助言？", "いいえ。出力はSignalです。推奨や売買指示ではなく、教育目的の分析補助です。"],
+  ["高配当は危険では？", "だから利回り単体ではなく、配当性向・利益率・EPS成長・負債・流動性を同時に見ます。"],
+  ["これは投資助言？", "いいえ。銘柄推奨や売買指示ではなく、ユーザー自身の条件で確認する教育目的のスクリーニングです。"],
   ["なぜGitHubで公開？", "ロジックを見える化し、投資家にも開発者にも検証可能なOSSとして育てるためです。"],
-  ["Proは何を売る？", "買い切りで、更新データ、CSV export、watchlist、dividend calendarなどの便利機能を提供します。" ]
+  ["Proは何を売る？", "助言ではなく、watchlist、目標配当プランナー、保存シナリオ、CSV exportなど調査時間を短縮する便利機能です。" ]
 ];
 
 export function ObjectionSection() {
@@ -11,7 +11,7 @@ export function ObjectionSection() {
       <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <p className="kicker">Objection Map</p>
-          <h2 className="jp-serif mt-3 text-4xl font-black text-white sm:text-5xl">不安を消すのではなく、構造化する。</h2>
+          <h2 className="jp-serif mt-3 text-4xl font-black text-white sm:text-5xl">怖さを煽らず、見るべき数字に分解する。</h2>
         </div>
         <div className="grid gap-3">
           {objections.map(([q, a]) => (

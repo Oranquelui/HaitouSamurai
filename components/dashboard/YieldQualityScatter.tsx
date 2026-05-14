@@ -39,7 +39,7 @@ export function YieldQualityScatter({ stocks }: { stocks: StockSignalRecord[] })
   const data: ChartData<"bubble", BubblePoint[]> = {
     datasets: [
       {
-        label: "Dividend signals",
+        label: "Dividend coverage metrics",
         data: points,
         backgroundColor: points.map((point) => `${signalColorByGrade[point.grade as keyof typeof signalColorByGrade]}AA`),
         borderColor: points.map((point) => signalColorByGrade[point.grade as keyof typeof signalColorByGrade]),
@@ -86,7 +86,7 @@ export function YieldQualityScatter({ stocks }: { stocks: StockSignalRecord[] })
       <div className="mb-4 flex items-center justify-between">
         <div>
           <p className="kicker">Yield vs Quality Map</p>
-          <h2 className="mt-1 text-2xl font-black text-white">Dividend Yield × ROE</h2>
+          <h2 className="mt-1 text-2xl font-black text-white">Yield × ROE coverage</h2>
         </div>
         <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-slate-300">bubble = market cap</span>
       </div>

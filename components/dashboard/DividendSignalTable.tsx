@@ -38,13 +38,13 @@ export function DividendSignalTable({
       {
         id: "score",
         accessorFn: (row) => row.signal.score,
-        header: "Score",
+        header: "Coverage",
         cell: ({ row }) => <span className="font-black text-cyan-200">{row.original.signal.score}</span>
       },
       {
         id: "grade",
         accessorFn: (row) => row.signal.grade,
-        header: "Signal",
+        header: "Review",
         cell: ({ row }) => (
           <span className="rounded-full px-3 py-1 text-xs font-black" style={{ backgroundColor: `${signalColorByGrade[row.original.signal.grade]}22`, color: signalColorByGrade[row.original.signal.grade] }}>
             {row.original.signal.grade}
@@ -65,6 +65,21 @@ export function DividendSignalTable({
         accessorKey: "roe",
         header: "ROE",
         cell: ({ row }) => `${row.original.roe.toFixed(1)}%`
+      },
+      {
+        accessorKey: "netProfitMargin",
+        header: "Net Margin",
+        cell: ({ row }) => `${row.original.netProfitMargin.toFixed(1)}%`
+      },
+      {
+        accessorKey: "epsGrowthThisYear",
+        header: "EPS Y",
+        cell: ({ row }) => `${row.original.epsGrowthThisYear.toFixed(1)}%`
+      },
+      {
+        accessorKey: "totalDebtToEquity",
+        header: "Total D/E",
+        cell: ({ row }) => row.original.totalDebtToEquity.toFixed(2)
       }
     ],
     []
@@ -82,11 +97,11 @@ export function DividendSignalTable({
   return (
     <div className="glow-panel overflow-hidden rounded-[1.75rem]">
       <div className="border-b border-white/10 p-5">
-        <p className="kicker">Ranking Table</p>
-        <h2 className="mt-1 text-2xl font-black text-white">Sustainable Dividend Signals</h2>
+        <p className="kicker">Screening Table</p>
+        <h2 className="mt-1 text-2xl font-black text-white">Dividend Mining Metrics</h2>
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[780px] text-left text-sm">
+        <table className="w-full min-w-[1120px] text-left text-sm">
           <thead className="bg-white/[0.035] text-xs uppercase tracking-[0.14em] text-slate-400">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>

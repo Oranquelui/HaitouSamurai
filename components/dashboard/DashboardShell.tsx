@@ -12,22 +12,22 @@ import { dashboardTrustCopy } from "@/lib/public-links";
 export function DashboardShell({ stocks }: { stocks: StockSignalRecord[] }) {
   const sortedStocks = useMemo(() => [...stocks].sort((a, b) => b.signal.score - a.signal.score), [stocks]);
   const [selected, setSelected] = useState<StockSignalRecord>(sortedStocks[0]);
-  const strongCount = stocks.filter((stock) => stock.signal.grade === "Strong").length;
-  const avoidCount = stocks.filter((stock) => stock.signal.grade === "Avoid").length;
+  const highCoverageCount = stocks.filter((stock) => stock.signal.grade === "High Coverage").length;
+  const needsReviewCount = stocks.filter((stock) => stock.signal.grade === "Needs Review").length;
   const averageYield = stocks.reduce((sum, stock) => sum + stock.dividendYield, 0) / stocks.length;
 
   return (
     <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 lg:px-10">
       <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="kicker">Live Demo / Sample Dataset</p>
-          <h1 className="jp-serif mt-3 text-5xl font-black text-white sm:text-7xl">Samurai Signal Deck</h1>
+          <p className="kicker">Dividend Mining / Sample Dataset</p>
+          <h1 className="jp-serif mt-3 text-5xl font-black text-white sm:text-7xl">配当 Mining Deck</h1>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400">{sampleDataNotice}</p>
         </div>
         <div className="grid grid-cols-2 gap-3 text-center sm:grid-cols-4">
           <Stat label="Sample Rows" value={String(stocks.length)} />
-          <Stat label="Strong" value={String(strongCount)} />
-          <Stat label="Avoid" value={String(avoidCount)} />
+          <Stat label="High Coverage" value={String(highCoverageCount)} />
+          <Stat label="Needs Review" value={String(needsReviewCount)} />
           <Stat label="Avg Yield" value={`${averageYield.toFixed(1)}%`} />
         </div>
       </div>

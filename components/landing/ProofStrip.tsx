@@ -2,7 +2,7 @@ const proofItems = [
   { label: "X API sample", value: "346", detail: "public posts analyzed" },
   { label: "JP demand", value: "NISA + income", detail: "cashflow stability" },
   { label: "EN demand", value: "yield traps", detail: "dividend-cut anxiety" },
-  { label: "Core need", value: "explainable", detail: "why safe or risky" }
+  { label: "Core need", value: "after-tax", detail: "risk flags + cashflow" }
 ];
 
 export function ProofStrip() {
