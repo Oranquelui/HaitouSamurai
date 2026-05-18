@@ -55,7 +55,7 @@ describe("public launch copy", () => {
     expect(layoutSource).toContain("Haitou Samurai");
     expect(layoutSource).not.toContain("Dividend Mining Research Tool");
     expect(layoutSource).not.toContain("github.com");
-    expect(layoutSource).not.toContain("metadataBase");
+    expect(layoutSource).toContain('metadataBase: new URL("https://haitou-samurai.oranque.jp")');
   });
 
   it("keeps the landing hero focused on user dividend simulation, not implementation details", async () => {

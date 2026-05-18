@@ -10,6 +10,10 @@ This project is for educational research and portfolio demonstration. It does no
 
 Scores, tables, charts, tax estimates, and monthly income simulations are simplified screening outputs. Static sample data may be stale, approximate, incomplete, or intentionally simplified. Verify financial data, market data, tax assumptions, exchange rates, company fundamentals, and tax treatment from primary sources before making financial decisions.
 
+## Live Sample
+
+- https://haitou-samurai.oranque.jp
+
 ## Implemented
 
 - Python data exporter for public assumptions
@@ -25,7 +29,6 @@ Scores, tables, charts, tax estimates, and monthly income simulations are simpli
 
 ## Planned
 
-- Real deployment URL after the public MVP is hosted
 - Portfolio save/load and scenario history
 - User-defined screening rules and watchlists
 - CSV/export workflow for user-owned analysis
