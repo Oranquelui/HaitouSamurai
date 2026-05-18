@@ -2,6 +2,12 @@
 
 配当サムライ / Haitou Samurai should be framed as a public dividend research workflow with Python data processing, typed artifacts, and a TypeScript dashboard.
 
+Public sample:
+
+- https://haitou-samurai.oranque.jp
+- Dashboard: https://haitou-samurai.oranque.jp/dashboard
+- Release v1.1.0: https://github.com/Oranquelui/HaitouSamurai/releases/tag/v1.1.0
+
 ## Trust Boundary
 
 - Educational research output only.
@@ -12,6 +18,7 @@
 
 ## Implemented
 
+- Hosted public URL and dashboard route.
 - Japanese landing path to the dashboard simulator.
 - Multi-stock selection and sortable dividend metric table.
 - Japan taxable-account estimate using 20.315% for listed-stock dividend scenarios.
@@ -22,8 +29,7 @@
 
 ## Planned
 
-- Hosted public URL after deployment.
-- Screenshot or short demo video after the hosted URL exists.
+- Screenshot or short demo video for README/docs.
 - Saved scenarios and watchlists.
 - Custom screening rules and user-owned export.
 - Reliable payout-month data if an explicit source is added.
