@@ -47,6 +47,16 @@ export type IncomeSimulation = {
   netAnnualJpy: number;
 };
 
+export type DividendMapZoneLabel = "収益力あり高配当" | "利回りの罠候補" | "増配候補 / 優良低配当" | "要追加調査";
+export type PayoutRiskTier = "stable" | "caution" | "danger";
+
+export type DividendMapZone = {
+  label: DividendMapZoneLabel;
+  roeGuide: "弱い" | "標準" | "良好" | "高収益";
+  why: string;
+  nextCheck: string;
+};
+
 const clampScore = (score: number) => Math.max(0, Math.min(100, Math.round(score)));
 
 const gradeForScore = (score: number): SignalGrade => {
@@ -54,6 +64,83 @@ const gradeForScore = (score: number): SignalGrade => {
   if (score >= 65) return "Monitor";
   if (score >= 45) return "Risk Flags";
   return "Needs Review";
+};
+
+const percent = (value: number, digits = 1) => `${value.toFixed(digits)}%`;
+const ratio = (value: number) => value.toFixed(2);
+
+export const roeGuideLabel = (roe: number): DividendMapZone["roeGuide"] => {
+  if (roe < 8) return "弱い";
+  if (roe < 12) return "標準";
+  if (roe < 20) return "良好";
+  return "高収益";
+};
+
+export const payoutRiskTier = (stockOrPayoutRatio: StockMetricInput | number): PayoutRiskTier => {
+  const payoutRatio = typeof stockOrPayoutRatio === "number" ? stockOrPayoutRatio : stockOrPayoutRatio.payoutRatio;
+
+  if (payoutRatio > 100) return "danger";
+  if (payoutRatio >= 70) return "caution";
+  return "stable";
+};
+
+export const classifyDividendMapZone = (stock: StockMetricInput): DividendMapZone => {
+  const highYield = stock.dividendYield >= 6;
+  const goodRoe = stock.roe >= 12;
+  const roeGuide = roeGuideLabel(stock.roe);
+
+  if (highYield && goodRoe) {
+    return {
+      label: "収益力あり高配当",
+      roeGuide,
+      why: "利回りとROEがともに高く、配当原資の収益力を確認しやすいゾーンです。",
+      nextCheck: "配当性向、負債、直近EPSの変化を一次情報で確認"
+    };
+  }
+
+  if (highYield) {
+    return {
+      label: "利回りの罠候補",
+      roeGuide,
+      why: "利回りが高い一方でROEが弱く、価格下落や利益悪化による見かけ利回りの可能性があります。",
+      nextCheck: "配当性向、減配履歴、利益率、負債返済余力を追加確認"
+    };
+  }
+
+  if (goodRoe) {
+    return {
+      label: "増配候補 / 優良低配当",
+      roeGuide,
+      why: "現在利回りは控えめでも、ROEが高く将来の配当余力を観察しやすいゾーンです。",
+      nextCheck: "配当方針、増配年数、利益成長の継続性を確認"
+    };
+  }
+
+  return {
+    label: "要追加調査",
+    roeGuide,
+    why: "利回りとROEだけでは配当継続力を判断しにくいゾーンです。",
+    nextCheck: "業種特性、資本政策、キャッシュフロー、負債水準を確認"
+  };
+};
+
+export const bubbleRadiusForMarketCap = (marketCapUsdBn: number) => {
+  const cappedMarketCapUsdBn = Math.min(Math.max(0, marketCapUsdBn), 3_000);
+  return Math.max(6, Math.min(13, 4.5 + Math.log10(cappedMarketCapUsdBn + 1) * 2.4));
+};
+
+export const diagnosticTooltipLines = (stock: StockMetricInput): string[] => {
+  const zone = classifyDividendMapZone(stock);
+
+  return [
+    `${stock.ticker} ${stock.name}`,
+    `ゾーン ${zone.label} / ROE ${zone.roeGuide}`,
+    `利回り ${percent(stock.dividendYield)} / ROE ${percent(stock.roe)}`,
+    `配当性向 ${percent(stock.payoutRatio)} / D/E ${ratio(stock.totalDebtToEquity)}`,
+    `EPS 5年 ${percent(stock.epsGrowth5y)}`,
+    `理由: ${zone.why}`,
+    `次に確認: ${zone.nextCheck}`
+  ];
 };
 
 export const calculateDividendSignal = (stock: StockMetricInput): DividendSignal => {

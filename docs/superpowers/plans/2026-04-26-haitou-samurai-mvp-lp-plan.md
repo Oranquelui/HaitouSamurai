@@ -17,7 +17,7 @@ X API recent-search sample collected on 2026-04-26:
 - 346 unique public posts
 - Japanese: 184
 - English: 162
-- Strong Japanese themes: dividend income, NISA, ranking/checklist content, sustainability metrics
+- Strong Japanese themes: dividend income, ranking/checklist content, sustainability metrics
 - Strong English themes: yield traps, dividend cuts, ETF income products, payout/FCF checks
 
 Core user job:
@@ -141,7 +141,7 @@ Lifetime Pro Waitlist
 ```
 
 - [ ] Create `components/landing/Hero.tsx` with dashboard preview mock.
-- [ ] Create `components/landing/ProofStrip.tsx` with research-backed user pains: yield traps, dividend cuts, NISA, monthly cashflow.
+- [ ] Create `components/landing/ProofStrip.tsx` with research-backed user pains: yield traps, dividend cuts, monthly cashflow.
 - [ ] Create `components/landing/ObjectionSection.tsx` with O/CO blocks.
 - [ ] Create `components/landing/PricingTeaser.tsx` showing OSS free and Lifetime Pro future.
 - [ ] Wire sections into `app/page.tsx`.

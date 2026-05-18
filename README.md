@@ -1,64 +1,50 @@
 # 配当サムライ / Haitou Samurai
 
-**"利回り高いけど大丈夫？"を、数値で確かめる。**
+**A public dividend research workflow built with Python data processing and a TypeScript product UI.**
 
-Haitou Samurai is an open-source dividend research dashboard for checking dividend candidates, risk flags, and after-tax income scenarios. It does not recommend tickers. It helps users inspect the numbers they want to verify before doing their own research.
+Haitou Samurai demonstrates a public dividend research workflow with a small Python data core, typed artifacts, and a Japanese-first Next.js dashboard for dividend sustainability research.
 
-## Demo
+## Legal Boundary
 
-- Demo URL: `TODO: add deployed URL`
-- Local dashboard: `http://localhost:3000/dashboard`
-- GitHub: `https://github.com/Oranquelui/HaitouSamurai`
+This project is for educational research and portfolio demonstration. It does not provide investment advice, financial advice, securities recommendations, ticker recommendations, personalized portfolio advice, or specific trading instructions.
 
-## What It Does
+Scores, tables, charts, tax estimates, and monthly income simulations are simplified screening outputs. Static sample data may be stale, approximate, incomplete, or intentionally simplified. Verify financial data, market data, tax assumptions, exchange rates, company fundamentals, and tax treatment from primary sources before making financial decisions.
 
-- Screens dividend candidates across income, coverage, profitability, growth, liquidity, and debt metrics
-- Shows risk flags without buy/sell/hold language
-- Includes workbook-aligned metrics: dividend yield, payout ratio, ROE, ROA, ROI, operating margin, net margin, EPS growth, one-year performance, current ratio, quick ratio, LT debt/equity, and total debt/equity
-- Maps yield against ROE with Chart.js
-- Shows a clickable metric table and explanation panel
-- Simulates after-tax income from a sample `$10,000` position
-- Uses static sample data while live data and portfolio features are still being validated
+## Implemented
 
-## What It Does Not Do
+- Python data exporter for public assumptions
+- Static sample stock universe generated from public research records
+- Japanese dashboard for selecting multiple tickers and sorting metrics
+- Dividend sustainability score with coverage, profitability, growth, liquidity, and leverage signals
+- 「配当継続力マップ」 with yield-trap zones, ROE guide bands, payout-risk borders, and diagnostic tooltips
+- Japan taxable-account estimate using the listed-stock dividend rate of 20.315%
+- Monthly and annual after-tax dividend estimates
+- 「月5万円まであと」 and required-principal estimate
+- Simplified monthly dividend calendar model
+- Educational disclaimers and static/sample-data notices
 
-Haitou Samurai does not provide investment advice, financial advice, securities recommendations, ticker recommendations, or buy/sell/hold instructions. Scores, tables, charts, and simulations are educational screening outputs only.
+## Planned
 
-Static sample data may be stale, approximate, incomplete, or intentionally simplified. Verify financial data, market data, tax assumptions, exchange rates, and company fundamentals from primary sources before making financial decisions.
+- Real deployment URL after the public MVP is hosted
+- Portfolio save/load and scenario history
+- User-defined thresholds and watchlists
+- CSV/export workflow for user-owned analysis
+- Actual dividend month handling when reliable source data is available
+- Future support for shareholder benefit notes where the data source is explicit
+- Legal review before paid, live-data, or personalized portfolio features
 
-## Buyer Problem
+## Product Question
 
-Dividend investors repeatedly ask:
+Dividend-focused users repeatedly ask:
 
-- "利回り高いけど大丈夫？"
-- "減配リスクのサインはどこを見る？"
-- "税引後でいくら残る？"
-- "月5万円、月10万円の配当にはどれくらい必要？"
-- "Excel管理が面倒。見るべき数字を一画面にまとめたい。"
+- 「利回りは高いけど、継続できるのか」
+- 「税引後で毎月いくら残るのか」
+- 「月5万円の配当には、どれくらい元本が必要か」
+- 「配当候補を、見える形にできないか」
 
-Haitou Samurai focuses on that workflow: mine candidates, check coverage, simulate after-tax income, and decide what to research next.
+Haitou Samurai focuses on that workflow: select candidates, inspect coverage, simulate after-tax income, and decide what to research next.
 
-## Free vs Pro Direction
-
-Free MVP:
-
-- Sample dashboard
-- Basic screening view
-- Single-position after-tax simulation
-- Metric explanations
-
-Future Pro validation:
-
-- Watchlist
-- Target dividend income planner
-- Saved scenarios
-- Custom thresholds
-- CSV/Excel export
-- Portfolio-level tax simulation
-
-Pro is intended to sell workflow efficiency, not investment judgment.
-
-## Quick Start
+## Local Preview
 
 ```bash
 npm install
@@ -75,16 +61,27 @@ http://localhost:3000/dashboard
 Verification:
 
 ```bash
-npm test
 npm run lint
+npm test
 npm run build
 ```
+
+## Python Data Core
+
+Private source files stay outside the repository. To export a public JSON artifact from a local source file:
+
+```bash
+npm run data:workbook -- --workbook /path/to/private/source.xlsx --output public/data/workbook-assumptions.json
+```
+
+The exporter reads only the fields needed for public assumptions, normalizes labels into JPY reporting language, and omits private source header text.
 
 ## Tech Stack
 
 - Next.js 16
 - React 19
 - TypeScript
+- Python 3
 - Tailwind CSS
 - Chart.js 4
 - TanStack Table
@@ -92,6 +89,8 @@ npm run build
 
 ## Docs
 
+- [Ontology](docs/ONTOLOGY.md)
+- [Language decision](docs/LANGUAGE_DECISION.md)
 - [Research notes](docs/RESEARCH.md)
 - [Legal disclaimer](docs/LEGAL_DISCLAIMER.md)
 - [Public launch notes](docs/PUBLIC_LAUNCH.md)

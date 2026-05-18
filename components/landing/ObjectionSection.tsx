@@ -1,8 +1,8 @@
 const objections = [
-  ["高配当は危険では？", "だから利回り単体ではなく、配当性向・利益率・EPS成長・負債・流動性を同時に見ます。"],
-  ["これは投資助言？", "いいえ。銘柄推奨や売買指示ではなく、ユーザー自身の条件で確認する教育目的のスクリーニングです。"],
-  ["なぜGitHubで公開？", "ロジックを見える化し、投資家にも開発者にも検証可能なOSSとして育てるためです。"],
-  ["Proは何を売る？", "助言ではなく、watchlist、目標配当プランナー、保存シナリオ、CSV exportなど調査時間を短縮する便利機能です。" ]
+  ["この金額は確定ですか？", "いいえ。配当利回り、為替、税率を置いた試算です。実際の配当、株価、為替、税制は変わります。"],
+  ["対象銘柄は何ですか？", "公開情報でリサーチした配当あり銘柄を、試算用データとして更新していく前提です。銘柄推奨ではありません。"],
+  ["銘柄をおすすめしますか？", "おすすめしません。ユーザーが自分で組み合わせた内容に対して、配当収入の目安だけを計算します。"],
+  ["米国株の税金は？", "外国源泉税や外国税額控除は別シナリオです。最初の画面では日本で受け取る時の基本前提を明示します。"]
 ];
 
 export function ObjectionSection() {
@@ -10,14 +10,14 @@ export function ObjectionSection() {
     <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
       <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
-          <p className="kicker">Objection Map</p>
-          <h2 className="jp-serif mt-3 text-4xl font-black text-white sm:text-5xl">怖さを煽らず、見るべき数字に分解する。</h2>
+          <p className="kicker">確認しておくこと</p>
+          <h2 className="jp-serif mt-3 text-4xl font-black text-blue-950 sm:text-5xl">配当の手取りは、前提で変わる。</h2>
         </div>
         <div className="grid gap-3">
           {objections.map(([q, a]) => (
-            <div key={q} className="glow-panel rounded-3xl p-5">
-              <p className="font-bold text-amber-200">{q}</p>
-              <p className="mt-3 text-sm leading-7 text-slate-400">{a}</p>
+            <div key={q} className="bright-panel rounded-lg p-5">
+              <p className="font-bold text-blue-950">{q}</p>
+              <p className="mt-3 text-sm leading-7 text-blue-950/65">{a}</p>
             </div>
           ))}
         </div>

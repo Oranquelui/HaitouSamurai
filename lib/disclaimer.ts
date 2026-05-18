@@ -1,11 +1,14 @@
-export const shortDisclaimer = "Educational screening tool only. Outputs are not investment advice, ticker recommendations, or buy/sell instructions.";
+export const shortDisclaimer = "試算結果は情報提供のみです。投資助言、銘柄推奨、売買指示ではありません。";
 
 export const sampleDataNotice =
-  "Sample dataset only: values are static, simplified, and not live market data. Tickers and metrics are used to demonstrate the scoring workflow.";
+  "公開情報で更新する試算用データです。価格、利回り、財務指標は簡略化されており、リアルタイムの市場データではありません。";
+
+export const stockUniverseNotice =
+  "配当リサーチ候補は、公開情報で更新していく配当あり銘柄の試算用データです。最新の利回りや財務指標は一次情報で確認してください。";
 
 export const fullDisclaimer = [
-  "配当サムライ / Haitou Samurai is for educational and research purposes only.",
-  "Scores, simulations, charts, and screening outputs are informational only, not financial advice, investment advice, or securities recommendations.",
-  "The service does not provide personalized advice, ticker recommendations, buy/sell/hold instructions, or guaranteed dividend outcomes.",
-  "Static demo data may be stale or approximate. Verify all data with primary sources before making any financial decision."
+  "配当サムライは情報提供と試算を目的としたツールです。",
+  "スコア、シミュレーション、チャート、スクリーニング結果は投資助言や有価証券の推奨ではありません。",
+  "個別銘柄の推奨、売買指示、将来の配当額の保証は行いません。",
+  "表示データは古い、または簡略化されている可能性があります。投資判断の前に一次情報で確認してください。"
 ];

@@ -6,7 +6,7 @@ import { TelicRecursion } from "@/components/landing/TelicRecursion";
 
 export default function Home() {
   return (
-    <main>
+    <main className="landing-bright">
       <Hero />
       <ProofStrip />
       <TelicRecursion />

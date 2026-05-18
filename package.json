@@ -8,8 +8,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "tsc --noEmit",
-    "test": "vitest run",
-    "test:watch": "vitest"
+    "test": "vitest run && python3 -m unittest discover -s data_core/tests",
+    "test:ts": "vitest run",
+    "test:python": "python3 -m unittest discover -s data_core/tests",
+    "test:watch": "vitest",
+    "data:workbook": "python3 data_core/scripts/export_workbook_artifact.py"
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3",

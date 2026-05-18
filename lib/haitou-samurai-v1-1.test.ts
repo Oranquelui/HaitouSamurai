@@ -64,6 +64,11 @@ describe("配当サムライ v1.1", () => {
     }
   });
 
+  it("uses the processed workbook universe instead of the small prototype ticker set", () => {
+    expect(sampleStocks.length).toBeGreaterThanOrEqual(1_100);
+    expect(sampleStocks.map((stock) => stock.ticker)).toEqual(expect.arrayContaining(["A", "AAON", "AAPL"]));
+  });
+
   it("uses review-oriented signal labels instead of advice-like labels", () => {
     expect(signalDefinitions.map((signal) => signal.grade)).toEqual([
       "High Coverage",

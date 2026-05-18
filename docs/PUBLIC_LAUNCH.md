@@ -1,30 +1,39 @@
 # Public Launch Notes
 
-配当サムライ / Haitou Samurai is ready for a lightweight public demo when these items are set:
-
-## Public Path
-
-- Landing page primary CTA: `Try Dashboard`
-- Secondary CTA: `Star on GitHub`
-- Validation CTA: `Join Lifetime Pro Waitlist` through a prefilled GitHub issue
-- Demo URL placeholder in `README.md` until deployment is available
+配当サムライ / Haitou Samurai should be framed as a public dividend research workflow with Python data processing, typed artifacts, and a TypeScript dashboard.
 
 ## Trust Boundary
 
-- The dashboard uses static sample data.
-- Scores and screening labels are educational research outputs.
-- The app does not provide investment advice, financial advice, securities recommendations, ticker recommendations, or buy/sell/hold instructions.
-- Users must verify data, tax assumptions, exchange rates, and fundamentals from primary sources.
+- Educational research output only.
+- Static/sample data is not real-time market data.
+- Screens, scores, charts, and tax estimates are simplified.
+- The app does not provide investment advice, securities recommendations, personalized portfolio advice, or specific trading instructions.
+- Users must verify data, tax assumptions, exchange rates, and company fundamentals from primary sources.
 
-## Monetization Boundary
+## Implemented
 
-- Free: sample dashboard, basic screener, metric explanations, single-position tax simulation.
-- Pro validation: watchlist, target dividend income planner, saved scenarios, custom thresholds, CSV/Excel export, and portfolio-level tax simulation.
-- Do not sell recommendations, model portfolios, personal advice, or member-only ticker lists.
+- Japanese landing path to the dashboard simulator.
+- Multi-stock selection and sortable dividend metric table.
+- Japan taxable-account estimate using 20.315% for listed-stock dividend scenarios.
+- Monthly/annual after-tax income, gap to monthly ¥50,000, and required-principal estimate.
+- Dividend sustainability map with yield-trap zones and payout-risk borders.
+- Simplified monthly dividend calendar model, clearly labeled as not actual payment months.
+- Public disclaimers and static-data notices.
 
-## Next Before Sharing Broadly
+## Planned
 
-- Deploy the static MVP and replace the README demo URL placeholder.
-- Add a screenshot or short demo GIF after deployment.
-- Confirm GitHub Issues are enabled for waitlist intake.
-- Get legal review before shipping paid live-data or portfolio features.
+- Hosted public URL after deployment.
+- Screenshot or short demo video after the hosted URL exists.
+- Saved scenarios and watchlists.
+- Custom thresholds and user-owned export.
+- Reliable payout-month data if an explicit source is added.
+- Shareholder benefit notes only when source data is explicit.
+- Legal review before paid, live-data, or personalized portfolio features.
+
+## Public Copy Direction
+
+- Primary CTA: `配当を試算する`
+- Avoid implementation-first framing on the first screen.
+- Keep Python/TypeScript details in docs, not in the user-facing dashboard hero.
+- Use 「配当あり銘柄」, 「税引後手取り」, 「月5万円配当」, 「減配リスク」, and 「配当継続力」 as user-facing concepts.
+- Do not sell model portfolios, personal advice, member-only ticker lists, or trading instructions.

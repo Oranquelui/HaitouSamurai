@@ -13,7 +13,7 @@ Recent-search sample:
 Observed Japanese themes:
 
 - Dividend income and psychological stability
-- New NISA allocation patterns
+- Tax-aware account allocation questions
 - High-dividend stock ranking/checklist content
 - Payout ratio, ROE, DOE, equity ratio, EPS, and operating margin checks
 

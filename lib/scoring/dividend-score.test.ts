@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { calculateDividendSignal, simulateIncome } from "./dividend-score";
+import {
+  bubbleRadiusForMarketCap,
+  calculateDividendSignal,
+  classifyDividendMapZone,
+  diagnosticTooltipLines,
+  payoutRiskTier,
+  simulateIncome
+} from "./dividend-score";
 
 const resilientStock = {
   ticker: "SAMURAI-A",
@@ -69,11 +76,52 @@ describe("calculateDividendSignal", () => {
 
 describe("simulateIncome", () => {
   it("calculates tax-adjusted dividend income and JPY conversion for a position", () => {
-    const result = simulateIncome({ investmentUsd: 10_000, dividendYield: 4.8, taxRate: 0.22, usdJpy: 155 });
+    const result = simulateIncome({ investmentUsd: 10_000, dividendYield: 4.8, taxRate: 0.20315, usdJpy: 155 });
 
     expect(result.grossAnnualUsd).toBeCloseTo(480);
-    expect(result.netAnnualUsd).toBeCloseTo(374.4);
-    expect(result.netMonthlyUsd).toBeCloseTo(31.2);
-    expect(result.netAnnualJpy).toBeCloseTo(58032);
+    expect(result.netAnnualUsd).toBeCloseTo(382.488);
+    expect(result.netMonthlyUsd).toBeCloseTo(31.874);
+    expect(result.netAnnualJpy).toBeCloseTo(59285.64);
+  });
+});
+
+describe("dividend sustainability map helpers", () => {
+  it("classifies high-yield weak fundamentals as a yield-trap candidate", () => {
+    const zone = classifyDividendMapZone(trapStock);
+    const lines = diagnosticTooltipLines(trapStock).join("\n");
+
+    expect(zone.label).toBe("利回りの罠候補");
+    expect(zone.why).toContain("利回り");
+    expect(zone.nextCheck).toContain("配当性向");
+    expect(payoutRiskTier(trapStock)).toBe("danger");
+    expect(lines).toContain("TRAP-Y");
+    expect(lines).toContain("Yield Mirage Ltd");
+    expect(lines).toContain("利回りの罠候補");
+    expect(lines).toContain("配当性向 132.0%");
+    expect(lines).toContain("D/E 2.40");
+    expect(lines).toContain("EPS 5年 -9.0%");
+  });
+
+  it("separates high-quality high yield from lower-yield compounding candidates", () => {
+    expect(
+      classifyDividendMapZone({
+        ...resilientStock,
+        dividendYield: 6.4,
+        roe: 18,
+        payoutRatio: 55
+      }).label
+    ).toBe("収益力あり高配当");
+
+    expect(classifyDividendMapZone(resilientStock).label).toBe("増配候補 / 優良低配当");
+  });
+
+  it("caps map bubble size so mega-cap outliers do not dominate the chart", () => {
+    const smallCapRadius = bubbleRadiusForMarketCap(2);
+    const megaCapRadius = bubbleRadiusForMarketCap(3_000);
+    const extremeMegaCapRadius = bubbleRadiusForMarketCap(50_000);
+
+    expect(smallCapRadius).toBeGreaterThanOrEqual(6);
+    expect(megaCapRadius).toBeLessThanOrEqual(18);
+    expect(extremeMegaCapRadius).toBe(megaCapRadius);
   });
 });
