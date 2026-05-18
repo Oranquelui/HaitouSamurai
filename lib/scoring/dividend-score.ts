@@ -47,8 +47,13 @@ export type IncomeSimulation = {
   netAnnualJpy: number;
 };
 
-export type DividendMapZoneLabel = "収益力あり高配当" | "利回りの罠候補" | "増配候補 / 優良低配当" | "要追加調査";
+export type DividendMapZoneLabel = "高利回り・高ROE要確認" | "利回りの罠候補" | "低利回り・高ROE観察" | "要追加調査";
 export type PayoutRiskTier = "stable" | "caution" | "danger";
+
+export const DIVIDEND_MAP_ROE_MIN = -5;
+export const DIVIDEND_MAP_ROE_MAX = 35;
+
+export const clampDividendMapRoe = (roe: number) => Math.max(DIVIDEND_MAP_ROE_MIN, Math.min(DIVIDEND_MAP_ROE_MAX, roe));
 
 export type DividendMapZone = {
   label: DividendMapZoneLabel;
@@ -91,9 +96,9 @@ export const classifyDividendMapZone = (stock: StockMetricInput): DividendMapZon
 
   if (highYield && goodRoe) {
     return {
-      label: "収益力あり高配当",
+      label: "高利回り・高ROE要確認",
       roeGuide,
-      why: "利回りとROEがともに高く、配当原資の収益力を確認しやすいゾーンです。",
+      why: "利回りとROEがともに高い候補です。配当原資の継続性は追加確認が必要です。",
       nextCheck: "配当性向、負債、直近EPSの変化を一次情報で確認"
     };
   }
@@ -109,10 +114,10 @@ export const classifyDividendMapZone = (stock: StockMetricInput): DividendMapZon
 
   if (goodRoe) {
     return {
-      label: "増配候補 / 優良低配当",
+      label: "低利回り・高ROE観察",
       roeGuide,
-      why: "現在利回りは控えめでも、ROEが高く将来の配当余力を観察しやすいゾーンです。",
-      nextCheck: "配当方針、増配年数、利益成長の継続性を確認"
+      why: "現在利回りは控えめで、ROEが高い候補です。配当方針と利益成長を観察します。",
+      nextCheck: "配当方針、配当履歴、利益成長の継続性を確認"
     };
   }
 

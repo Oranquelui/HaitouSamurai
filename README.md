@@ -27,7 +27,7 @@ Scores, tables, charts, tax estimates, and monthly income simulations are simpli
 
 - Real deployment URL after the public MVP is hosted
 - Portfolio save/load and scenario history
-- User-defined thresholds and watchlists
+- User-defined screening rules and watchlists
 - CSV/export workflow for user-owned analysis
 - Actual dividend month handling when reliable source data is available
 - Future support for shareholder benefit notes where the data source is explicit
@@ -68,13 +68,7 @@ npm run build
 
 ## Python Data Core
 
-Private source files stay outside the repository. To export a public JSON artifact from a local source file:
-
-```bash
-npm run data:workbook -- --workbook /path/to/private/source.xlsx --output public/data/workbook-assumptions.json
-```
-
-The exporter reads only the fields needed for public assumptions, normalizes labels into JPY reporting language, and omits private source header text.
+Private source files stay outside the repository. The Python data core exports public-safe JSON artifacts for assumptions and sample research records. The exporter reads only the fields needed for the demo surface, normalizes labels into JPY reporting language, and omits private source text.
 
 ## Tech Stack
 

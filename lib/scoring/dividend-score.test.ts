@@ -110,9 +110,17 @@ describe("dividend sustainability map helpers", () => {
         roe: 18,
         payoutRatio: 55
       }).label
-    ).toBe("収益力あり高配当");
+    ).toBe("高利回り・高ROE要確認");
 
-    expect(classifyDividendMapZone(resilientStock).label).toBe("増配候補 / 優良低配当");
+    expect(classifyDividendMapZone(resilientStock).label).toBe("低利回り・高ROE観察");
+  });
+
+  it("clamps ROE outliers into the chart range before counting them as visible", async () => {
+    const { clampDividendMapRoe, DIVIDEND_MAP_ROE_MAX, DIVIDEND_MAP_ROE_MIN } = await import("./dividend-score");
+
+    expect(clampDividendMapRoe(164.9)).toBe(DIVIDEND_MAP_ROE_MAX);
+    expect(clampDividendMapRoe(-812.5)).toBe(DIVIDEND_MAP_ROE_MIN);
+    expect(clampDividendMapRoe(18)).toBe(18);
   });
 
   it("caps map bubble size so mega-cap outliers do not dominate the chart", () => {

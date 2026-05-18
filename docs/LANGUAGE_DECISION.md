@@ -4,11 +4,11 @@ Decision: use Python for the data core and TypeScript/Next.js for the product su
 
 ## Why This Stack
 
-Python is the right first language for the workbook-to-data layer:
+Python is the right first language for the source-data layer:
 
-- It is strong for spreadsheet ingestion, tabular transforms, metric normalization, and reproducible batch jobs.
-- It keeps the original workbook logic close to the data-processing code.
-- It is easy to review as an FDE portfolio artifact because inputs, assumptions, and output records can be tested directly.
+- It is strong for tabular ingestion, metric normalization, and reproducible batch jobs.
+- It keeps assumptions and output records easy to test directly.
+- It can run locally without requiring a hosted backend for the MVP.
 
 TypeScript and Next.js are the right first stack for the public product:
 
@@ -25,9 +25,9 @@ Rust is a later option for performance-sensitive parsers, local binaries, or saf
 ## Target Shape
 
 ```txt
-Workbook / source snapshots
+Private source snapshots
   -> Python ingestion and normalization in data_core/
-  -> JSON or Parquet typed artifacts
+  -> Public-safe JSON artifacts
   -> TypeScript domain types
   -> Next.js dashboard and public demo
 ```
@@ -42,7 +42,6 @@ Avoid positioning the project as an advice engine, ticker picker, or model portf
 
 ## Current Implementation
 
-- `data_core/haitou_samurai/workbook_xlsx.py` reads selected cells from `.xlsx` files using the Python standard library.
-- `data_core/haitou_samurai/workbook_artifact.py` exports the public currency/tax assumption artifact.
-- `data_core/scripts/export_workbook_artifact.py` is the CLI entrypoint.
+- Python exporters create public assumption and sample-stock artifacts.
+- TypeScript modules define currency assumptions, metric definitions, and scoring behavior.
 - `npm test` runs both Vitest and Python `unittest` checks.

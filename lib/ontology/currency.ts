@@ -46,7 +46,7 @@ export const jpyWorkbookCurrencySemantics: WorkbookCurrencySemantics = {
     }
   ],
   publicInterpretation:
-    "This workbook is treated as a JPY reporting variant. Non-JPY legacy header text is normalized before publication; active conversion semantics are USD source values reported in JPY."
+    "This public taxable-account simulation treats source values as USD and reports estimates in JPY. Legacy source labels are normalized before publication; the visible product story is tax-adjusted JPY dividend research."
 };
 
 export const convertUsdToReportingCurrency = (amountUsd: number, fxRate: number) => amountUsd * fxRate;

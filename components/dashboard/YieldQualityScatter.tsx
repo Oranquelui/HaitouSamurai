@@ -16,6 +16,9 @@ import type { StockSignalRecord } from "@/lib/data/sample-stocks";
 import {
   bubbleRadiusForMarketCap,
   classifyDividendMapZone,
+  clampDividendMapRoe,
+  DIVIDEND_MAP_ROE_MAX,
+  DIVIDEND_MAP_ROE_MIN,
   diagnosticTooltipLines,
   payoutRiskTier,
   type DividendMapZoneLabel,
@@ -34,9 +37,9 @@ type BubblePoint = {
 };
 
 const zoneFillColor: Record<DividendMapZoneLabel, string> = {
-  "収益力あり高配当": "rgba(184, 135, 18, 0.76)",
+  "高利回り・高ROE要確認": "rgba(184, 135, 18, 0.76)",
   "利回りの罠候補": "rgba(180, 63, 43, 0.74)",
-  "増配候補 / 優良低配当": "rgba(31, 122, 98, 0.72)",
+  "低利回り・高ROE観察": "rgba(31, 122, 98, 0.72)",
   "要追加調査": "rgba(20, 32, 77, 0.46)"
 };
 
@@ -56,9 +59,9 @@ const payoutBorderWidth: Record<PayoutRiskTier, number> = {
 
 const guideLabels = [
   { label: "利回りの罠候補", x: 1, y: 10.5 },
-  { label: "収益力あり高配当", x: 15, y: 10.5 },
+  { label: "高利回り・高ROE要確認", x: 15, y: 10.5 },
   { label: "要追加調査", x: 1, y: 3.1 },
-  { label: "増配候補 / 優良低配当", x: 15, y: 3.1 }
+  { label: "低利回り・高ROE観察", x: 15, y: 3.1 }
 ] as const;
 
 const roeGuides = [
@@ -139,7 +142,7 @@ export function YieldQualityScatter({ stocks }: { stocks: StockSignalRecord[] })
     const payoutRisk = payoutRiskTier(stock);
 
     return {
-      x: stock.roe,
+      x: clampDividendMapRoe(stock.roe),
       y: stock.dividendYield,
       r: bubbleRadiusForMarketCap(stock.marketCapUsdBn),
       stock,
@@ -204,8 +207,8 @@ export function YieldQualityScatter({ stocks }: { stocks: StockSignalRecord[] })
     },
     scales: {
       x: {
-        min: -5,
-        max: 35,
+        min: DIVIDEND_MAP_ROE_MIN,
+        max: DIVIDEND_MAP_ROE_MAX,
         title: { display: true, text: "ROE (%)", color: "#14204d" },
         grid: { color: "rgba(20, 32, 77, 0.11)" },
         ticks: { color: "#5a6689" }
@@ -296,8 +299,8 @@ function GuidePill({ label, value, tone }: { label: string; value: string; tone:
 }
 
 function zoneDescription(label: DividendMapZoneLabel) {
-  if (label === "収益力あり高配当") return "高い利回りをROEで補強できているかを見るゾーン。配当性向は必ず確認。";
+  if (label === "高利回り・高ROE要確認") return "高い利回りをROEで補強できているかを見るゾーン。配当性向は必ず確認。";
   if (label === "利回りの罠候補") return "高利回りでも収益力が弱い候補。減配・価格下落・負債を追加確認。";
-  if (label === "増配候補 / 優良低配当") return "足元利回りは低めでも収益力がある候補。増配余力の観察向け。";
+  if (label === "低利回り・高ROE観察") return "足元利回りは低めでも収益力がある候補。配当方針と利益成長の観察向け。";
   return "利回りとROEだけでは判断しにくい候補。業種特性と財務を確認。";
 }

@@ -25,7 +25,7 @@
 - Hosted public URL after deployment.
 - Screenshot or short demo video after the hosted URL exists.
 - Saved scenarios and watchlists.
-- Custom thresholds and user-owned export.
+- Custom screening rules and user-owned export.
 - Reliable payout-month data if an explicit source is added.
 - Shareholder benefit notes only when source data is explicit.
 - Legal review before paid, live-data, or personalized portfolio features.

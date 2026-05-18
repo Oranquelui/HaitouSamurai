@@ -47,10 +47,14 @@ export function DividendSignalTable({
       return stocks;
     }
 
-    return stocks.filter((stock) => [stock.ticker, stock.name, stock.sector, stock.signal.grade]
-      .join(" ")
-      .toLowerCase()
-      .includes(normalizedSearchQuery));
+    return stocks.filter((stock) => {
+      const publicStateLabel = gradeMeta[stock.signal.grade].label;
+
+      return [stock.ticker, stock.name, stock.sector, stock.signal.grade, publicStateLabel]
+        .join(" ")
+        .toLowerCase()
+        .includes(normalizedSearchQuery);
+    });
   }, [normalizedSearchQuery, stocks]);
 
   const columns = useMemo<ColumnDef<StockSignalRecord>[]>(
@@ -159,7 +163,7 @@ export function DividendSignalTable({
         <div className="mt-5 grid gap-3 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
           <div>
             <label className="text-xs font-semibold tracking-[0.14em] text-blue-950/45" htmlFor="stock-search">
-              銘柄名・ティッカーで検索
+              銘柄名・ティッカー・セクター・状態で検索
             </label>
             <div className="mt-2 grid gap-2 sm:grid-cols-[minmax(0,1fr)_auto]">
               <input

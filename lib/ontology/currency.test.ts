@@ -16,6 +16,8 @@ describe("JPY workbook currency semantics", () => {
       policy: "rewrite-to-jpy"
     });
     expect(jpyWorkbookCurrencySemantics.publicInterpretation).not.toContain(String.fromCharCode(75, 82, 87));
+    expect(jpyWorkbookCurrencySemantics.publicInterpretation).toContain("taxable-account");
+    expect(jpyWorkbookCurrencySemantics.publicInterpretation).not.toContain("threshold");
   });
 
   it("converts workbook USD amounts into JPY using the workbook FX rate", () => {

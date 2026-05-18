@@ -54,6 +54,8 @@ describe("public launch copy", () => {
     expect(layoutSource).toContain("配当サムライ");
     expect(layoutSource).toContain("Haitou Samurai");
     expect(layoutSource).not.toContain("Dividend Mining Research Tool");
+    expect(layoutSource).not.toContain("github.com");
+    expect(layoutSource).not.toContain("metadataBase");
   });
 
   it("keeps the landing hero focused on user dividend simulation, not implementation details", async () => {
@@ -259,7 +261,8 @@ describe("public launch copy", () => {
     expect(tableSource).toContain("searchQuery");
     expect(tableSource).toContain("filteredStocks");
     expect(tableSource).toContain("sortPresets");
-    expect(tableSource).toContain("銘柄名・ティッカーで検索");
+    expect(tableSource).toContain("銘柄名・ティッカー・セクター・状態で検索");
+    expect(tableSource).toContain("gradeMeta[stock.signal.grade].label");
     expect(tableSource).toContain("検索結果");
     expect(tableSource).toContain("スコア順");
     expect(tableSource).toContain("利回り順");
@@ -275,10 +278,11 @@ describe("public launch copy", () => {
 
     expect(mapSource).toContain("配当継続力マップ");
     expect(mapSource).toContain("高利回り注意");
-    expect(mapSource).toContain("収益力あり高配当");
+    expect(mapSource).toContain("高利回り・高ROE要確認");
     expect(mapSource).toContain("利回りの罠候補");
-    expect(mapSource).toContain("増配候補 / 優良低配当");
+    expect(mapSource).toContain("低利回り・高ROE観察");
     expect(mapSource).toContain("要追加調査");
+    expect(mapSource).toContain("clampDividendMapRoe");
     expect(mapSource).toContain("diagnosticTooltipLines");
     expect(mapSource).toContain("payoutRiskTier");
     expect(mapSource).toContain("dividendSustainabilityGuidePlugin");
@@ -311,18 +315,42 @@ describe("public launch copy", () => {
   });
 
   it("keeps public docs honest about implemented scope and planned work", async () => {
-    const readmeSource = await readFile(new URL("../README.md", import.meta.url), "utf8");
-    const launchSource = await readFile(new URL("../docs/PUBLIC_LAUNCH.md", import.meta.url), "utf8");
-    const docsSource = `${readmeSource}\n${launchSource}`;
+    const publicDocSources = await Promise.all(
+      [
+        "../README.md",
+        "../docs/PUBLIC_LAUNCH.md",
+        "../docs/ONTOLOGY.md",
+        "../docs/LANGUAGE_DECISION.md",
+        "../docs/LEGAL_DISCLAIMER.md",
+        "../docs/RESEARCH.md",
+        "../docs/superpowers/specs/2026-05-14-haitou-samurai-v1-1-design.md",
+        "../docs/superpowers/plans/2026-04-26-haitou-samurai-mvp-lp-plan.md"
+      ].map((file) => readFile(new URL(file, import.meta.url), "utf8"))
+    );
+    const docsSource = publicDocSources.join("\n");
 
     expect(docsSource).toContain("Implemented");
     expect(docsSource).toContain("Planned");
     expect(docsSource).toContain("public dividend research workflow");
     expect(docsSource).not.toContain("operational spreadsheet");
     expect(docsSource).not.toContain("Excel");
+    expect(docsSource).not.toContain("spreadsheet");
+    expect(docsSource).not.toContain("personal dividend-mining workbook");
+    expect(docsSource).not.toContain("Workbook Sheet Mapping");
+    expect(docsSource).not.toContain("original workbook purpose");
+    expect(docsSource).not.toContain("/Users/");
     expect(docsSource).not.toContain("workbook-style");
     expect(docsSource).not.toContain("FDE portfolio project");
+    expect(docsSource).not.toContain("GitHub stars");
+    expect(docsSource).not.toContain("Star on GitHub");
+    expect(docsSource).not.toContain("Waitlist");
+    expect(docsSource).not.toContain("Lifetime Pro");
+    expect(docsSource).not.toContain("Pro validation");
+    expect(docsSource).not.toContain("Pro must sell");
+    expect(docsSource).not.toContain("One-time purchase");
     expect(docsSource).not.toContain("TODO: add deployed URL");
     expect(docsSource).not.toContain("Demo URL:");
+    expect(docsSource).not.toContain("tax_on_amount_above_threshold");
+    expect(docsSource).not.toContain("Tax threshold");
   });
 });
