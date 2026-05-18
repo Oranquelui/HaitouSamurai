@@ -1,67 +1,67 @@
-# 配当サムライ / Haitou Samurai
+# 配当サムライ
 
-**A public dividend research workflow built with Python data processing and a TypeScript product UI.**
+配当サムライは、日本の個人投資家が「税引後で毎月いくら残るか」と「配当を続けられそうか」を確認するための、教育・研究用の公開サンプルです。
 
-Haitou Samurai demonstrates a public dividend research workflow with a small Python data core, typed artifacts, and a Japanese-first Next.js dashboard for dividend sustainability research.
+Python のデータ処理で公開用の試算データを作り、Next.js / TypeScript の画面で、銘柄選択、配当手取り、配当継続力の見方を確認できます。
 
-## Legal Boundary
+## 重要な注意
 
-This project is for educational research and portfolio demonstration. It does not provide investment advice, financial advice, securities recommendations, ticker recommendations, personalized portfolio advice, or specific trading instructions.
+このプロジェクトは、教育・研究・ポートフォリオ提示を目的としたサンプルです。投資助言、金融助言、銘柄推奨、売買推奨、個別ポートフォリオ助言、特定の取引指示は行いません。
 
-Scores, tables, charts, tax estimates, and monthly income simulations are simplified screening outputs. Static sample data may be stale, approximate, incomplete, or intentionally simplified. Verify financial data, market data, tax assumptions, exchange rates, company fundamentals, and tax treatment from primary sources before making financial decisions.
+画面に出るスコア、表、グラフ、税額試算、月額配当の目安は、すべて簡易的な確認用出力です。試算用データは古い、概算である、不完全である、または意図的に単純化されている可能性があります。投資判断の前には、金融データ、市場データ、税制、為替、企業情報、配当情報を必ず一次情報で確認してください。
 
-## Live Sample
+## 公開サンプル
 
 - https://haitou-samurai.oranque.jp
+- 試算画面: https://haitou-samurai.oranque.jp/dashboard
 
-## Implemented
+## できること
 
-- Python data exporter for public assumptions
-- Static sample stock universe generated from public research records
-- Japanese dashboard for selecting multiple tickers and sorting metrics
-- Dividend sustainability score with coverage, profitability, growth, liquidity, and leverage signals
-- 「配当継続力マップ」 with yield-trap zones, ROE guide bands, payout-risk borders, and diagnostic tooltips
-- Japan taxable-account estimate using the listed-stock dividend rate of 20.315%
-- Monthly and annual after-tax dividend estimates
-- 「月5万円まであと」 and required-principal estimate
-- Simplified monthly dividend calendar model
-- Educational disclaimers and static/sample-data notices
+- 公開用の前提データを Python で生成
+- 配当リサーチ候補の静的な試算用データを表示
+- 複数銘柄の選択、検索、並び替え
+- 配当利回り、配当性向、利益、負債、成長性などを使った配当継続力スコア
+- 利回りの高さだけでなく、無理な配当や収益性の弱さを見やすくする「配当継続力マップ」
+- 日本の課税口座を前提にした 20.315% の税引後配当試算
+- 年間手取り、毎月の手取り、月5万円までの不足額、必要元本の目安
+- 簡易的な月別配当カレンダー
+- 試算用データであること、投資助言ではないことの明示
 
-## Planned
+## 今後の候補
 
-- Portfolio save/load and scenario history
-- User-defined screening rules and watchlists
-- CSV/export workflow for user-owned analysis
-- Actual dividend month handling when reliable source data is available
-- Future support for shareholder benefit notes where the data source is explicit
-- Legal review before paid, live-data, or personalized portfolio features
+- ポートフォリオの保存とシナリオ履歴
+- ユーザー定義のスクリーニング条件
+- 利用者自身の分析用の CSV 出力
+- 信頼できる情報源が確認できた場合の実際の配当月対応
+- 情報源を明示できる場合の株主優待メモ
+- 有料機能、リアルタイムデータ、個別化された機能を出す前の法務確認
 
-## Product Question
+## このプロジェクトが見る問い
 
-Dividend-focused users repeatedly ask:
+配当投資では、次のような問いがよく出ます。
 
-- 「利回りは高いけど、継続できるのか」
-- 「税引後で毎月いくら残るのか」
-- 「月5万円の配当には、どれくらい元本が必要か」
-- 「配当候補を、見える形にできないか」
+- 利回りは高いが、配当を続けられるのか
+- 税引後では毎月いくら残るのか
+- 月5万円の配当には、どれくらい元本が必要か
+- 気になる銘柄を、比較しやすい形で見られないか
 
-Haitou Samurai focuses on that workflow: select candidates, inspect coverage, simulate after-tax income, and decide what to research next.
+配当サムライは、候補を選び、配当の余力を見て、税引後の手取りを試算し、次に何を一次情報で確認するべきかを整理するためのサンプルです。
 
-## Local Preview
+## ローカルで確認する
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open:
+ブラウザで次を開きます。
 
 ```txt
 http://localhost:3000
 http://localhost:3000/dashboard
 ```
 
-Verification:
+検証コマンドです。
 
 ```bash
 npm run lint
@@ -69,11 +69,13 @@ npm test
 npm run build
 ```
 
-## Python Data Core
+## データ処理
 
-Private source files stay outside the repository. The Python data core exports public-safe JSON artifacts for assumptions and sample research records. The exporter reads only the fields needed for the demo surface, normalizes labels into JPY reporting language, and omits private source text.
+非公開の元データはリポジトリに入れません。Python のデータ処理では、公開画面に必要な項目だけを抽出し、日本円表示向けに整形した公開用データを生成します。
 
-## Tech Stack
+この方針により、画面側では実装の都合や非公開ファイルではなく、利用者に見せてもよい試算用データだけを扱います。
+
+## 技術構成
 
 - Next.js 16
 - React 19
@@ -84,15 +86,15 @@ Private source files stay outside the repository. The Python data core exports p
 - TanStack Table
 - Vitest
 
-## Docs
+## 関連ドキュメント
 
-- [Ontology](docs/ONTOLOGY.md)
-- [Language decision](docs/LANGUAGE_DECISION.md)
-- [Research notes](docs/RESEARCH.md)
-- [Legal disclaimer](docs/LEGAL_DISCLAIMER.md)
-- [Public launch notes](docs/PUBLIC_LAUNCH.md)
-- [配当サムライ v1.1 design](docs/superpowers/specs/2026-05-14-haitou-samurai-v1-1-design.md)
+- [概念設計](docs/ONTOLOGY.md)
+- [言語選定メモ](docs/LANGUAGE_DECISION.md)
+- [調査メモ](docs/RESEARCH.md)
+- [免責事項](docs/LEGAL_DISCLAIMER.md)
+- [公開メモ](docs/PUBLIC_LAUNCH.md)
+- [配当サムライ v1.1 設計](docs/superpowers/specs/2026-05-14-haitou-samurai-v1-1-design.md)
 
-## License
+## ライセンス
 
-MIT License.
+MITライセンスです。
